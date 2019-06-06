@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="hdao" />
+        <module name="hentity" />
+        <module name="hservice" />
+        <module name="hweb" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="hdao" target="1.5" />
+      <module name="Hello" target="1.5" />
+      <module name="hentity" target="1.5" />
+      <module name="hservice" target="1.5" />
+      <module name="hweb" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
