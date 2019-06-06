@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="hweb:war">
+    <output-path>$PROJECT_DIR$/h-web/target</output-path>
+    <root id="archive" name="h-web-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="hweb:war exploded" />
+    </root>
+  </artifact>
+</component>
