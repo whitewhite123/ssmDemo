@@ -27,5 +27,14 @@
     <!--开启注解-->
     <mvc:annotation-driven/>
 
+    <!--设置拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!--拦截所有路径-->
+            <mvc:mapping path="/**"/>
+            <!--使用哪个对象对拦截进行处理-->
+            <bean class="com.msj.global.LoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 </beans>

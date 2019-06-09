@@ -1,14 +1,13 @@
 package com.msj.controller;
-
 import com.msj.entity.Department;
 import com.msj.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import java.util.List;
 import java.util.Map;
 
+//部门信息
 @Controller("departmentController")
 @RequestMapping("/department")
 public class DepartmentController {
