@@ -49,13 +49,8 @@ public class Employee {
         return departmentSn;
     }
 
-//    public void setDepartmentSn(String departmentSn) {
-//        this.departmentSn = departmentSn == null ? null : departmentSn.trim();
-//    }
-
-
     public void setDepartmentSn(String departmentSn) {
-        this.departmentSn = departmentSn;
+        this.departmentSn = departmentSn == null ? null : departmentSn.trim();
     }
 
     public String getPost() {
@@ -64,17 +59,5 @@ public class Employee {
 
     public void setPost(String post) {
         this.post = post == null ? null : post.trim();
-    }
-
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "sn='" + sn + '\'' +
-                ", password='" + password + '\'' +
-                ", name='" + name + '\'' +
-                ", departmentSn='" + departmentSn + '\'' +
-                ", post='" + post + '\'' +
-                ", department=" + department +
-                '}';
     }
 }

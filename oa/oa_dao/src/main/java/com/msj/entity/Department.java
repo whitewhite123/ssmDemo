@@ -30,13 +30,4 @@ public class Department {
     public void setAddress(String address) {
         this.address = address == null ? null : address.trim();
     }
-
-    @Override
-    public String toString() {
-        return "Department{" +
-                "sn='" + sn + '\'' +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                '}';
-    }
 }

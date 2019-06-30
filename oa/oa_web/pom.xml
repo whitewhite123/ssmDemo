@@ -12,38 +12,44 @@
     <artifactId>oa_web</artifactId>
 
     <dependencies>
-        <!--service-->
+        <!--oa_dao-->
         <dependency>
             <groupId>com.msj</groupId>
-            <artifactId>oa_service</artifactId>
+            <artifactId>oa_dao</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <!--spring-->
         <dependency>
             <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>5.1.5.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.1.5.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
-            <version>${spring-version}</version>
+            <version>5.1.5.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>${spring-version}</version>
+            <version>5.1.5.RELEASE</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>5.1.5.RELEASE</version>
+        </dependency>
         <!--jstl-->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
-
-        <!--servlet-->
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.5</version>
-        </dependency>
-
     </dependencies>
 
 

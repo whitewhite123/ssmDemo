@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.4//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<!--namespace:mapper类-->
-<mapper namespace="com.msj.mapper.EmployeeMapper">
-    <!--resultMap：查询多个表中的数据，映射到结果集中（将查询结果封装到pojo类中）-->
+
+<mapper namespace="com.msj.dao.EmployeeDao">
     <resultMap id="employee" type="com.msj.entity.Employee">
         <id property="sn" column="sn" javaType="String"/>
         <result property="password" column="password" javaType="String"/>
@@ -15,27 +14,11 @@
             <result property="name" column="dname" javaType="String"/>
         </association>
     </resultMap>
-    <!--id：方法名-->
-    <insert id="insertOne" parameterType="com.msj.entity.Employee">
-        insert into employee values (#{sn},#{password},#{name},#{departmentSn},#{post})
-    </insert>
-
-    <update id="updateOne" parameterType="com.msj.entity.Employee">
-        update employee set name=#{name},password=#{password},
-        department_sn=#{departmentSn},post=#{post} where sn=#{sn}
-    </update>
-
-    <delete id="deleteOne" parameterType="String">
-        delete from employee where sn=#{sn}
-    </delete>
-
-    <select id="selectOne" parameterType="String" resultMap="employee">
-        select e.*,d.sn dsn,d.name dname from employee e left join department d on d.sn = e.department_sn where e.sn=#{sn}
+    <select id="selectOne" resultType="java.lang.Integer">
+        select sn,password from employee where sn=#{sn} and password=#{password}
     </select>
 
-    <select id="selectAll" parameterType="com.msj.entity.Employee" resultMap="employee">
-        select e.*,d.sn dsn,d.name dname from employee e left join department d on d.sn = e.department_sn
+    <select id="selectAll" resultMap="employee">
+        select e.sn,e.name,e.post,d.name from employee e,department d
     </select>
-
-
 </mapper>
