@@ -12,10 +12,10 @@
     <artifactId>oa_web</artifactId>
 
     <dependencies>
-        <!--oa_dao-->
+        <!--oa_service-->
         <dependency>
             <groupId>com.msj</groupId>
-            <artifactId>oa_dao</artifactId>
+            <artifactId>oa_service</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <!--spring-->

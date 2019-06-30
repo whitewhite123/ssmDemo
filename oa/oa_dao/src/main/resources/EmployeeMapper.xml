@@ -19,6 +19,6 @@
     </select>
 
     <select id="selectAll" resultMap="employee">
-        select e.sn,e.name,e.post,d.name from employee e,department d
+        select e.*,d.name dname from employee e left join department d on e.department_sn = d.sn
     </select>
 </mapper>
