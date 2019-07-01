@@ -40,6 +40,7 @@ public class EmployeeController{
         }
     }
 
+    //查询全部
     @RequestMapping("/list")
     public String list(Map<String,Object> map){
         List<Employee> employeeList = employeeService.findAll();
@@ -48,6 +49,7 @@ public class EmployeeController{
         return "employee_list";
     }
 
+    //新增
     @RequestMapping("/to_add")
     public String to_add(Map<String,Object> map){
         map.put("employee",new Employee());
@@ -58,6 +60,13 @@ public class EmployeeController{
     @RequestMapping("/add")
     public String add(Employee employee){
         employeeService.insertOne(employee);
-        return null;
+        return "self";
+    }
+
+    //删除
+    @RequestMapping("/remove")
+    public String remove(String sn){
+        employeeService.deleteOne(sn);
+        return "redirect:/employee/list";
     }
 }

@@ -28,4 +28,8 @@
         values(#{sn},#{password},#{name},#{departmentSn},#{post})
     </insert>
 
+    <delete id="deleteOne" parameterType="java.lang.String">
+        delete from employee where sn=#{sn}
+    </delete>
+
 </mapper>
