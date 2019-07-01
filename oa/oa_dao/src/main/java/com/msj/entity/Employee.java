@@ -3,7 +3,7 @@ package com.msj.entity;
 public class Employee {
     private String sn;
 
-    private String password;
+    private String password = "000000";
 
     private String name;
 

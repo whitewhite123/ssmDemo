@@ -9,4 +9,5 @@ import java.util.List;
 public interface EmployeeDao {
     Integer selectOne(@Param("sn")String sn,@Param("password")String password);
     List<Employee> selectAll();
+    void insertOne(Employee employee);
 }

@@ -2,6 +2,8 @@ package com.msj.controller;
 
 import com.msj.dao.EmployeeDao;
 import com.msj.entity.Employee;
+import com.msj.global.Contant;
+import com.msj.service.DepartmentService;
 import com.msj.service.EmployeeService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,8 @@ public class EmployeeController{
 
     @Autowired
     private EmployeeService employeeService;
+    @Autowired
+    private DepartmentService departmentService;
 
     //跳转登录页面
     @RequestMapping("/to_login")
@@ -42,5 +46,18 @@ public class EmployeeController{
         System.out.println(employeeList);
         map.put("list",employeeList);
         return "employee_list";
+    }
+
+    @RequestMapping("/to_add")
+    public String to_add(Map<String,Object> map){
+        map.put("employee",new Employee());
+        map.put("dlist",departmentService.findAll());
+        map.put("plist",Contant.getPosts());
+        return "employee_add";
+    }
+    @RequestMapping("/add")
+    public String add(Employee employee){
+        employeeService.insertOne(employee);
+        return null;
     }
 }
