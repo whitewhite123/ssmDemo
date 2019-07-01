@@ -32,4 +32,15 @@
         delete from employee where sn=#{sn}
     </delete>
 
+    <select id="select" resultMap="employee">
+        select e.*,d.name dname from Employee e left join Department d
+        on e.department_sn = d.sn
+        where e.sn=#{sn}
+    </select>
+
+    <update id="updateOne" parameterType="com.msj.entity.Employee">
+        update Employee set name=#{name},department_sn=#{departmentSn},post=#{post}
+        where sn=#{sn}
+    </update>
+
 </mapper>

@@ -53,20 +53,37 @@ public class EmployeeController{
     @RequestMapping("/to_add")
     public String to_add(Map<String,Object> map){
         map.put("employee",new Employee());
+        //所在部门
         map.put("dlist",departmentService.findAll());
+        //职位
         map.put("plist",Contant.getPosts());
         return "employee_add";
     }
     @RequestMapping("/add")
     public String add(Employee employee){
         employeeService.insertOne(employee);
-        return "self";
+        return "redirect:/employee/list";
     }
 
     //删除
     @RequestMapping("/remove")
     public String remove(String sn){
         employeeService.deleteOne(sn);
+        return "redirect:/employee/list";
+    }
+
+    //更新
+    @RequestMapping("/to_update")
+    public String to_update(Map<String,Object> map,String sn){
+        Employee employee = employeeService.select(sn);
+        map.put("employee",employee);
+        map.put("dlist",departmentService.findAll());
+        map.put("plist",Contant.getPosts());
+        return "employee_update";
+    }
+    @RequestMapping("/update")
+    public String update(Employee employee){
+        employeeService.update(employee);
         return "redirect:/employee/list";
     }
 }

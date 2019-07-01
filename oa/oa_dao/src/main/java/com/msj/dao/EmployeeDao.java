@@ -11,4 +11,6 @@ public interface EmployeeDao {
     List<Employee> selectAll();
     void insertOne(Employee employee);
     void deleteOne(String sn);
+    Employee select(String sn);
+    void updateOne(Employee employee);
 }
