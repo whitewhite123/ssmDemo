@@ -45,4 +45,11 @@ public class LoginController {
     public String self(){
         return "self";
     }
+
+    //退出登录
+    @RequestMapping("/quit")
+    public String quit(HttpSession session){
+        session.setAttribute("employee",null);
+        return "redirect:to_login";
+    }
 }
