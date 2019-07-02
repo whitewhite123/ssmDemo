@@ -10,16 +10,14 @@ public class LoginServiceImpl implements LoginService{
     @Autowired
     private LoginDao loginDao;
 
-
     public Employee selectOne(String sn, String password) {
         return loginDao.selectOne(sn,password);
     }
 
-    public void selectOldPassword(String sn) {
-        loginDao.selectOld(sn);
+
+    public void changePassword(Employee employee) {
+        loginDao.changePassword(employee);
     }
 
-    public void changePassword(String sn, String password) {
-        loginDao.changePassword(sn,password);
-    }
+
 }

@@ -20,11 +20,7 @@
         where e.sn=#{sn} and e.password=#{password}
     </select>
 
-    <select id="selectPassword">
-      select password from Employee where sn=#{sn}
-    </select>
-
-    <update id="changePassword">
+    <update id="changePassword" parameterType="com.msj.entity.Employee">
         update Employee set password=#{password} where sn=#{sn}
     </update>
 </mapper>

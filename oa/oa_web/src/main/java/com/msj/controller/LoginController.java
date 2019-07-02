@@ -4,7 +4,7 @@ import com.msj.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.context.support.HttpRequestHandlerServlet;
+
 
 import javax.servlet.http.HttpSession;
 
@@ -35,11 +35,22 @@ public class LoginController {
 
     //修改密码
     @RequestMapping("/to_change_password")
-    public String to_changePassword(String sn,String old,String new1,String new2){
-        loginService.selectOldPassword(sn);
+    public String to_changePassword(){
         return "change_password";
     }
-
+    @RequestMapping("/change_password")
+    public String change_password(HttpSession session,String old,String new1,String new2){
+        Employee employee = (Employee)session.getAttribute("employee");
+        if((employee.getPassword()).equals(old)){
+            if(new1.equals(new2)){
+                employee.setPassword(new1);
+                //里面的employee要从session.getAttribute取出来的
+                loginService.changePassword(employee);
+                return "redirect:/to_login";
+            }
+        }
+        return "redirect:/to_change_password";
+    }
     //查询个人信息
     @RequestMapping("/self")
     public String self(){

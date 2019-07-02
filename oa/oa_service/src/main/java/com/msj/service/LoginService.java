@@ -6,6 +6,5 @@ import org.apache.ibatis.annotations.Param;
 public interface LoginService {
     //多个参数，得用@Param
     Employee selectOne(@Param("sn")String sn, @Param("password")String password);
-    void selectOldPassword(String sn);
-    void changePassword(@Param("sn")String sn, @Param("password")String password);
+    void changePassword(Employee employee);
 }
