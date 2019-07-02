@@ -39,4 +39,10 @@ public class LoginController {
         loginService.selectOldPassword(sn);
         return "change_password";
     }
+
+    //查询个人信息
+    @RequestMapping("/self")
+    public String self(){
+        return "self";
+    }
 }
