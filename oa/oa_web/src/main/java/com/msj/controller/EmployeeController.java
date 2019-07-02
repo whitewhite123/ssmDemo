@@ -22,23 +22,7 @@ public class EmployeeController{
     @Autowired
     private DepartmentService departmentService;
 
-    //跳转登录页面
-    @RequestMapping("/to_login")
-    public String to_login(){
-        return "login";
-    }
 
-    //登录处理
-    @RequestMapping("/login")
-    public String login(String sn,String password){
-        Integer num = employeeService.selectOne(sn, password);
-        //查询出来，就可以登录成功
-        if(num!=null){
-            return "redirect:/employee/list";
-        }else{
-            return "redirect:/employee/to_login";
-        }
-    }
 
     //查询全部
     @RequestMapping("/list")
@@ -75,7 +59,7 @@ public class EmployeeController{
     //更新
     @RequestMapping("/to_update")
     public String to_update(Map<String,Object> map,String sn){
-        Employee employee = employeeService.select(sn);
+        Employee employee = employeeService.selectOne(sn);
         map.put("employee",employee);
         map.put("dlist",departmentService.findAll());
         map.put("plist",Contant.getPosts());
@@ -86,4 +70,6 @@ public class EmployeeController{
         employeeService.update(employee);
         return "redirect:/employee/list";
     }
+
+
 }
