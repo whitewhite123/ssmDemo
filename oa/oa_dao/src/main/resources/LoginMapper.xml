@@ -17,7 +17,7 @@
     <select id="selectOne" resultMap="employee">
         select e.*,d.name dname from employee e left join Department d
         on e.department_sn = d.sn
-        where e.sn=#{sn} and e.password=#{password}
+        where e.sn=#{sn}
     </select>
 
     <update id="changePassword" parameterType="com.msj.entity.Employee">

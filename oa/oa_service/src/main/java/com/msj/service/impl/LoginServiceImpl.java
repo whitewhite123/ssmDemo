@@ -11,7 +11,12 @@ public class LoginServiceImpl implements LoginService{
     private LoginDao loginDao;
 
     public Employee selectOne(String sn, String password) {
-        return loginDao.selectOne(sn,password);
+        Employee employee = loginDao.selectOne(sn);
+        //判断取出来的employee是否为空，密码是否一致
+        if(employee!=null&&employee.getPassword().equals(password)){
+            return employee;
+        }
+        return null;
     }
 
 

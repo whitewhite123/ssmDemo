@@ -4,6 +4,6 @@ import com.msj.entity.Employee;
 import org.apache.ibatis.annotations.Param;
 
 public interface LoginDao {
-    Employee selectOne(@Param("sn")String sn, @Param("password")String password);
+    Employee selectOne(String sn);
     void changePassword(Employee employee);
 }

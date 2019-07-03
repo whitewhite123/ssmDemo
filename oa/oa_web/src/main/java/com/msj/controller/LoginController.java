@@ -29,7 +29,7 @@ public class LoginController {
             session.setAttribute("employee",employee);
             return "self";
         }else{
-            return "redirect:/employee/to_login";
+            return "redirect:/to_login";
         }
     }
 
