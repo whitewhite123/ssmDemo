@@ -10,7 +10,10 @@ public class HelloTest {
     public void hello(String name,String password){
         System.out.println("名字："+name);
         System.out.println("密码："+password);
-
     }
 
+    @RequestMapping("/hello2")
+    public void hello2(){
+        System.out.println("hhhhhhh");
+    }
 }
