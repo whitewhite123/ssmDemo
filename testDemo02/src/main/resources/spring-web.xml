@@ -17,12 +17,8 @@
 
     <!--注册拦截器-->
     <mvc:interceptors>
-        <!--拦截哪些路径-->
-        <mvc:interceptor>
-            <mvc:mapping path="/hello"/>
-            <bean class="com.msj.TestInterceptor"/>
-        </mvc:interceptor>
-
+        <bean class="com.msj.TestInterceptor"/>
+        <bean class="com.msj.TestInterceptor2"/>
     </mvc:interceptors>
 
 
