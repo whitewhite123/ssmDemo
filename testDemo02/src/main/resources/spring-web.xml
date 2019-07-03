@@ -18,8 +18,6 @@
     <!--注册拦截器-->
     <mvc:interceptors>
         <bean class="com.msj.TestInterceptor"/>
-        <bean class="com.msj.TestInterceptor2"/>
+        <!--<bean class="com.msj.TestInterceptor2"/>-->
     </mvc:interceptors>
-
-
 </beans>
