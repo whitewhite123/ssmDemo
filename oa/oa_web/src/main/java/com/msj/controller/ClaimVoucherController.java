@@ -35,6 +35,8 @@ public class ClaimVoucherController {
         return "claim_voucher_self";
     }
 
+
+    //查看个人报销单
     @RequestMapping("/self")
     public String self(Map<String,Object> map,HttpSession session){
         Employee employee = (Employee)session.getAttribute("employee");
