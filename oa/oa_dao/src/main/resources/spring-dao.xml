@@ -25,6 +25,7 @@
                 <value>classpath:LoginMapper.xml</value>
                 <value>classpath:ClaimVoucherMapper.xml</value>
                 <value>classpath:ClaimVoucherItemMapper.xml</value>
+                <value>classpath:DealRecord.xml</value>
             </list>
         </property>
     </bean>

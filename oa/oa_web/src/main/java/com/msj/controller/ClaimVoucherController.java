@@ -1,17 +1,12 @@
 package com.msj.controller;
 
-import com.msj.entity.ClaimVoucher;
-import com.msj.entity.ClaimVoucherInfo;
-import com.msj.entity.ClaimVoucherItem;
-import com.msj.entity.Employee;
+import com.msj.entity.*;
 import com.msj.global.Contant;
-import com.msj.service.ClaimVoucherItemService;
 import com.msj.service.ClaimVoucherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.jws.Oneway;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
@@ -21,8 +16,6 @@ import java.util.Map;
 public class ClaimVoucherController {
     @Autowired
     private ClaimVoucherService claimVoucherService;
-    @Autowired
-    private ClaimVoucherItemService  claimVoucherItemService;
 
     //新增报销单
     @RequestMapping("/to_add")
@@ -64,9 +57,22 @@ public class ClaimVoucherController {
     public String detail(Integer id,Map<String,Object> map){
         ClaimVoucher claimVoucher = claimVoucherService.findclaimVoucher(id);
         List<ClaimVoucherItem> items = claimVoucherService.findItems(id);
+//        List<DealRecord> records = claimVoucherService.findRecords(id);
         map.put("items",items);
         map.put("claimVoucher",claimVoucher);
         return "claim_voucher_detail";
+    }
+
+    //修改报销单
+    @RequestMapping("/to_update")
+    public String to_update(Map<String,Object> map){
+        map.put("info",new ClaimVoucherInfo());
+        return "claim_voucher_update";
+    }
+
+    @RequestMapping("/update")
+    public String update(){
+        return "redirect:/claimVoucher/deal";
     }
 
 }

@@ -2,11 +2,12 @@ package com.msj.service.impl;
 
 import com.msj.dao.ClaimVoucherDao;
 import com.msj.dao.ClaimVoucherItemDao;
+import com.msj.dao.DealRecordDao;
 import com.msj.entity.ClaimVoucher;
 import com.msj.entity.ClaimVoucherItem;
+import com.msj.entity.DealRecord;
 import com.msj.global.Contant;
 import com.msj.service.ClaimVoucherService;
-import org.omg.PortableInterceptor.INACTIVE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,8 @@ public class ClaimVoucherServiceImpl implements ClaimVoucherService{
     private ClaimVoucherDao claimVoucherDao;
     @Autowired
     private ClaimVoucherItemDao claimVoucherItemDao;
+    @Autowired
+    private DealRecordDao dealRecordDao;
 
     public void save(ClaimVoucher claimVoucher, List<ClaimVoucherItem> items) {
         claimVoucher.setCreateTime(new Date()); //创建时间
@@ -47,5 +50,9 @@ public class ClaimVoucherServiceImpl implements ClaimVoucherService{
 
     public List<ClaimVoucherItem> findItems(Integer cid) {
         return claimVoucherDao.selectItems(cid);
+    }
+
+    public List<DealRecord> findRecords(Integer id) {
+        return dealRecordDao.selectRecord(id);
     }
 }
