@@ -11,4 +11,7 @@ public interface ClaimVoucherService {
     void save(ClaimVoucher claimVoucher, List<ClaimVoucherItem> items);
     List<ClaimVoucher> findSelf(String createSn);
     List<ClaimVoucher> findForDeal(String createSn);
+    ClaimVoucher findclaimVoucher(Integer id);
+
+    List<ClaimVoucherItem> findItems(Integer cid);
 }

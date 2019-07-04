@@ -2,8 +2,10 @@ package com.msj.controller;
 
 import com.msj.entity.ClaimVoucher;
 import com.msj.entity.ClaimVoucherInfo;
+import com.msj.entity.ClaimVoucherItem;
 import com.msj.entity.Employee;
 import com.msj.global.Contant;
+import com.msj.service.ClaimVoucherItemService;
 import com.msj.service.ClaimVoucherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +21,8 @@ import java.util.Map;
 public class ClaimVoucherController {
     @Autowired
     private ClaimVoucherService claimVoucherService;
+    @Autowired
+    private ClaimVoucherItemService  claimVoucherItemService;
 
     //新增报销单
     @RequestMapping("/to_add")
@@ -55,5 +59,14 @@ public class ClaimVoucherController {
         return "claim_voucher_deal";
     }
 
+    //查看报销单的详情
+    @RequestMapping("/detail")
+    public String detail(Integer id,Map<String,Object> map){
+        ClaimVoucher claimVoucher = claimVoucherService.findclaimVoucher(id);
+        List<ClaimVoucherItem> items = claimVoucherService.findItems(id);
+        map.put("items",items);
+        map.put("claimVoucher",claimVoucher);
+        return "claim_voucher_detail";
+    }
 
 }

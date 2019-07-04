@@ -6,6 +6,7 @@ import com.msj.entity.ClaimVoucher;
 import com.msj.entity.ClaimVoucherItem;
 import com.msj.global.Contant;
 import com.msj.service.ClaimVoucherService;
+import org.omg.PortableInterceptor.INACTIVE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class ClaimVoucherServiceImpl implements ClaimVoucherService {
+public class ClaimVoucherServiceImpl implements ClaimVoucherService{
     @Autowired
     private ClaimVoucherDao claimVoucherDao;
     @Autowired
@@ -38,5 +39,13 @@ public class ClaimVoucherServiceImpl implements ClaimVoucherService {
 
     public List<ClaimVoucher> findForDeal(String createSn) {
         return claimVoucherDao.selectForDeal(createSn);
+    }
+
+    public ClaimVoucher findclaimVoucher(Integer id) {
+        return claimVoucherDao.selectclaimVoucher(id);
+    }
+
+    public List<ClaimVoucherItem> findItems(Integer cid) {
+        return claimVoucherDao.selectItems(cid);
     }
 }
