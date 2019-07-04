@@ -30,4 +30,10 @@
         on c.create_sn = e.sn
         where create_sn=#{createSn}
     </select>
+
+    <select id="selectForDeal" resultMap="claimVoucher">
+        select c.*,e.name from claim_voucher c left join employee e
+        on c.create_sn = e.sn
+        where create_sn=#{createSn}
+    </select>
 </mapper>

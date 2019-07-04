@@ -7,4 +7,5 @@ import java.util.List;
 public interface ClaimVoucherDao {
     void insertOne(ClaimVoucher claimVoucher);
     List<ClaimVoucher> selectSelf(String createSn);
+    List<ClaimVoucher> selectForDeal(String createSn);
 }

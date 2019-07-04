@@ -35,4 +35,8 @@ public class ClaimVoucherServiceImpl implements ClaimVoucherService {
     public List<ClaimVoucher> findSelf(String createSn) {
         return claimVoucherDao.selectSelf(createSn);
     }
+
+    public List<ClaimVoucher> findForDeal(String createSn) {
+        return claimVoucherDao.selectForDeal(createSn);
+    }
 }

@@ -32,18 +32,28 @@ public class ClaimVoucherController {
         Employee employee = (Employee) session.getAttribute("employee");
         info.getClaimVoucher().setCreateSn(employee.getSn());
         claimVoucherService.save(info.getClaimVoucher(),info.getItems());
-        return "claim_voucher_self";
+        return "redirect:/claim_voucher/self";
     }
-
 
     //查看个人报销单
     @RequestMapping("/self")
     public String self(Map<String,Object> map,HttpSession session){
         Employee employee = (Employee)session.getAttribute("employee");
-        String createSn = employee.getSn();
+        String createSn = employee.getSn(); //根据创建人查看个人报销单
         List<ClaimVoucher> claimVoucherList = claimVoucherService.findSelf(createSn);
-        System.out.println(claimVoucherList);
         map.put("list",claimVoucherList);
         return "claim_voucher_self";
     }
+
+    //查看待处理的报销单
+    @RequestMapping("/deal")
+    public String deal(Map<String,Object> map,HttpSession session){
+        Employee employee = (Employee)session.getAttribute("employee");
+        String createSn = employee.getSn();
+        List<ClaimVoucher> claimVoucherList = claimVoucherService.findForDeal(createSn);
+        map.put("list",claimVoucherList);
+        return "claim_voucher_deal";
+    }
+
+
 }
