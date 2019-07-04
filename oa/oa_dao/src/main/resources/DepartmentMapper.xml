@@ -5,23 +5,23 @@
 
 <mapper namespace="com.msj.dao.DepartmentDao">
     <select id="selectAll" resultType="com.msj.entity.Department">
-        select * from Department
+        select * from department
     </select>
 
     <insert id="insertOne" parameterType="com.msj.dao.DepartmentDao">
-        insert into Department(sn,name,address) values(#{sn},#{name},#{address})
+        insert into department(sn,name,address) values(#{sn},#{name},#{address})
     </insert>
 
     <delete id="deleteOne" parameterType="java.lang.String">
-        delete from Department where sn = #{sn}
+        delete from department where sn = #{sn}
     </delete>
 
     <select id="selectOne" resultType="com.msj.entity.Department">
-        select * from Department where sn = #{sn}
+        select * from department where sn = #{sn}
     </select>
 
     <update id="updateOne" parameterType="com.msj.entity.Department">
-        update Department set sn=#{sn},name=#{name},address=#{address}
+        update department set sn=#{sn},name=#{name},address=#{address}
         where sn=#{sn}
     </update>
 </mapper>

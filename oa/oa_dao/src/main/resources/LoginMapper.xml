@@ -21,6 +21,6 @@
     </select>
 
     <update id="changePassword" parameterType="com.msj.entity.Employee">
-        update Employee set password=#{password} where sn=#{sn}
+        update employee set password=#{password} where sn=#{sn}
     </update>
 </mapper>

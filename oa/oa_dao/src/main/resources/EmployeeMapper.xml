@@ -20,7 +20,7 @@
     </select>
 
     <insert id="insertOne" parameterType="com.msj.entity.Employee">
-        insert into Employee(sn,password,name,department_sn,post)
+        insert into employee(sn,password,name,department_sn,post)
         values(#{sn},#{password},#{name},#{departmentSn},#{post})
     </insert>
 
@@ -29,13 +29,13 @@
     </delete>
 
     <select id="selectOne" resultMap="employee">
-        select e.*,d.name dname from Employee e left join Department d
+        select e.*,d.name dname from employee e left join department d
         on e.department_sn = d.sn
         where e.sn=#{sn}
     </select>
 
     <update id="updateOne" parameterType="com.msj.entity.Employee">
-        update Employee set sn=#{sn},name=#{name},department_sn=#{departmentSn},post=#{post}
+        update employee set sn=#{sn},name=#{name},department_sn=#{departmentSn},post=#{post}
         where sn=#{sn}
     </update>
 

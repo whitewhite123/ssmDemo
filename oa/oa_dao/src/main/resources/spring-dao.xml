@@ -23,6 +23,8 @@
                 <value>classpath:EmployeeMapper.xml</value>
                 <value>classpath:DepartmentMapper.xml</value>
                 <value>classpath:LoginMapper.xml</value>
+                <value>classpath:ClaimVoucherMapper.xml</value>
+                <value>classpath:ClaimVoucherItemMapper.xml</value>
             </list>
         </property>
     </bean>
