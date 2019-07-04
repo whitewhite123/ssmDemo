@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.jws.Oneway;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -34,5 +35,13 @@ public class ClaimVoucherController {
         return "claim_voucher_self";
     }
 
-
+    @RequestMapping("/self")
+    public String self(Map<String,Object> map,HttpSession session){
+        Employee employee = (Employee)session.getAttribute("employee");
+        String createSn = employee.getSn();
+        List<ClaimVoucher> claimVoucherList = claimVoucherService.findSelf(createSn);
+        System.out.println(claimVoucherList);
+        map.put("list",claimVoucherList);
+        return "claim_voucher_self";
+    }
 }

@@ -93,4 +93,19 @@ public class ClaimVoucher {
     public void setDealer(Employee dealer) {
         this.dealer = dealer;
     }
+
+    @Override
+    public String  toString() {
+        return "ClaimVoucher{" +
+                "id=" + id +
+                ", cause='" + cause + '\'' +
+                ", createSn='" + createSn + '\'' +
+                ", createTime=" + createTime +
+                ", nextDealSn='" + nextDealSn + '\'' +
+                ", totalAmount=" + totalAmount +
+                ", status='" + status + '\'' +
+                ", creater=" + creater +
+                ", dealer=" + dealer +
+                '}';
+    }
 }

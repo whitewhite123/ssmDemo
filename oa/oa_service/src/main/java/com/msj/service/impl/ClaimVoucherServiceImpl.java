@@ -3,7 +3,6 @@ package com.msj.service.impl;
 import com.msj.dao.ClaimVoucherDao;
 import com.msj.dao.ClaimVoucherItemDao;
 import com.msj.entity.ClaimVoucher;
-import com.msj.entity.ClaimVoucherInfo;
 import com.msj.entity.ClaimVoucherItem;
 import com.msj.global.Contant;
 import com.msj.service.ClaimVoucherService;
@@ -31,5 +30,9 @@ public class ClaimVoucherServiceImpl implements ClaimVoucherService {
             item.setClaimVoucherId(claimVoucher.getId());
             claimVoucherItemDao.insertOne(item);
         }
+    }
+
+    public List<ClaimVoucher> findSelf(String createSn) {
+        return claimVoucherDao.selectSelf(createSn);
     }
 }
