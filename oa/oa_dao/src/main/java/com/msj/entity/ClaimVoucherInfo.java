@@ -21,4 +21,12 @@ public class ClaimVoucherInfo {
     public void setItems(List<ClaimVoucherItem> items) {
         this.items = items;
     }
+
+    @Override
+    public String toString() {
+        return "ClaimVoucherInfo{" +
+                "claimVoucher=" + claimVoucher +
+                ", items=" + items +
+                '}';
+    }
 }

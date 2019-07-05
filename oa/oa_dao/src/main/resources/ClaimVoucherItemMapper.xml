@@ -8,4 +8,9 @@
         values (#{claimVoucherId},#{item},#{amount},#{comment})
     </insert>
 
+    <select id="selectItems" resultType="com.msj.entity.ClaimVoucherItem">
+        select * from claim_voucher_item where claim_voucher_id = #{cid}
+    </select>
+
+
 </mapper>

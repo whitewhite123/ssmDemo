@@ -65,8 +65,13 @@ public class ClaimVoucherController {
 
     //修改报销单
     @RequestMapping("/to_update")
-    public String to_update(Map<String,Object> map){
-        map.put("info",new ClaimVoucherInfo());
+    public String to_update(Integer id,Map<String,Object> map){
+        map.put("items",Contant.getItems());
+        ClaimVoucherInfo info = new ClaimVoucherInfo();
+        info.setClaimVoucher(claimVoucherService.findclaimVoucher(id));
+        System.out.println(claimVoucherService.findItems(id));
+        info.setItems(claimVoucherService.findItems(id));
+        map.put("info",info);
         return "claim_voucher_update";
     }
 

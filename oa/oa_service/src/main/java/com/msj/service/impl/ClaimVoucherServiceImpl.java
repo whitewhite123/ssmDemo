@@ -49,7 +49,7 @@ public class ClaimVoucherServiceImpl implements ClaimVoucherService{
     }
 
     public List<ClaimVoucherItem> findItems(Integer cid) {
-        return claimVoucherDao.selectItems(cid);
+        return claimVoucherItemDao.selectItems(cid);
     }
 
     public List<DealRecord> findRecords(Integer id) {

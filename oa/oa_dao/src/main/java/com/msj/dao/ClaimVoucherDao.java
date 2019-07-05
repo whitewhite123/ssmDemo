@@ -11,5 +11,5 @@ public interface ClaimVoucherDao {
     List<ClaimVoucher> selectForDeal(String createSn);
     ClaimVoucher selectclaimVoucher(Integer id);
 
-    List<ClaimVoucherItem> selectItems(Integer cid);
+
 }
