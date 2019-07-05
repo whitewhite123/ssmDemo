@@ -23,6 +23,7 @@ public class ClaimVoucherServiceImpl implements ClaimVoucherService{
     @Autowired
     private DealRecordDao dealRecordDao;
 
+    //添加报销单
     public void save(ClaimVoucher claimVoucher, List<ClaimVoucherItem> items) {
         claimVoucher.setCreateTime(new Date()); //创建时间
         claimVoucher.setNextDealSn(claimVoucher.getCreateSn());
@@ -36,23 +37,60 @@ public class ClaimVoucherServiceImpl implements ClaimVoucherService{
         }
     }
 
+    //查询个人报销单
     public List<ClaimVoucher> findSelf(String createSn) {
         return claimVoucherDao.selectSelf(createSn);
     }
 
+    //查询待处理的报销单
     public List<ClaimVoucher> findForDeal(String createSn) {
         return claimVoucherDao.selectForDeal(createSn);
     }
 
+    //查询报销单
     public ClaimVoucher findclaimVoucher(Integer id) {
         return claimVoucherDao.selectclaimVoucher(id);
     }
 
+    //查询报销单详情
     public List<ClaimVoucherItem> findItems(Integer cid) {
         return claimVoucherItemDao.selectItems(cid);
     }
 
+    //查询记录信息
     public List<DealRecord> findRecords(Integer id) {
         return dealRecordDao.selectRecord(id);
     }
+
+    //更新报销单
+    public void edit(ClaimVoucher claimVoucher, List<ClaimVoucherItem> items) {
+        claimVoucher.setNextDealSn(claimVoucher.getCreateSn());
+        claimVoucher.setStatus(Contant.CLAIMVOUCHER_CREATED);
+        claimVoucherDao.update(claimVoucher);
+
+        List<ClaimVoucherItem> olds = claimVoucherItemDao.selectItems(claimVoucher.getId());
+        for(ClaimVoucherItem old:olds){
+            boolean isHave = false;
+            for(ClaimVoucherItem item:items){
+                if(item.getId() == old.getId()){
+                    isHave = true;
+                    break;
+                }
+            }
+            if(!isHave){
+                //根据claim_voucher_item的主键进行删除
+                claimVoucherItemDao.delete(old.getId());
+            }
+            for(ClaimVoucherItem item:items){
+                item.setClaimVoucherId(claimVoucher.getId());
+                if(item.getId()>0){
+                    claimVoucherItemDao.update(item);
+                }else{
+                    claimVoucherItemDao.insertOne(item);
+                }
+            }
+        }
+    }
+
+
 }

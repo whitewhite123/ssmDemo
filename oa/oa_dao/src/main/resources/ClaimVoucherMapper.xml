@@ -43,5 +43,10 @@
         where id=#{id}
     </select>
 
+    <update id="update" parameterType="com.msj.entity.ClaimVoucher">
+        update claim_voucher set cause=#{cause},create_sn=#{createSn},create_time=#{createTime},
+        next_deal_sn=#{nextDealSn},total_amount=#{totalAmount},status=#{status}
+    </update>
+
 
 </mapper>

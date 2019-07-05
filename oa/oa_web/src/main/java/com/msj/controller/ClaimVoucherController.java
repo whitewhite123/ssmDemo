@@ -69,14 +69,16 @@ public class ClaimVoucherController {
         map.put("items",Contant.getItems());
         ClaimVoucherInfo info = new ClaimVoucherInfo();
         info.setClaimVoucher(claimVoucherService.findclaimVoucher(id));
-        System.out.println(claimVoucherService.findItems(id));
         info.setItems(claimVoucherService.findItems(id));
         map.put("info",info);
         return "claim_voucher_update";
     }
 
     @RequestMapping("/update")
-    public String update(){
+    public String update(ClaimVoucherInfo info,HttpSession session){
+        Employee employee = (Employee)session.getAttribute("employee");
+        info.getClaimVoucher().setCreateSn(employee.getSn());
+        claimVoucherService.edit(info.getClaimVoucher(),info.getItems());
         return "redirect:/claimVoucher/deal";
     }
 

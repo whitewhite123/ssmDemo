@@ -16,4 +16,6 @@ public interface ClaimVoucherService {
 
     List<ClaimVoucherItem> findItems(Integer cid);
     List<DealRecord> findRecords(Integer id);
+
+    void edit(ClaimVoucher claimVoucher,List<ClaimVoucherItem> items);
 }
