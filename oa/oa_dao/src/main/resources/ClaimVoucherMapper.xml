@@ -44,10 +44,15 @@
     </select>
 
     <update id="update" parameterType="com.msj.entity.ClaimVoucher">
-        update claim_voucher set cause=#{cause},create_sn=#{createSn},create_time=#{createTime},
+        update claim_voucher set cause=#{cause},create_sn=#{createSn},
         next_deal_sn=#{nextDealSn},total_amount=#{totalAmount},status=#{status}
         where id=#{id}
     </update>
 
+    <select id="selectClaimVoucherByPrice" resultMap="claimVoucher">
+        select c.*,e.name  from claim_voucher c left join employee e
+        on c.create_sn = e.sn
+        where total_amount &gt;=#{low} and total_amount &lt;= #{high}
+</select>
 
 </mapper>

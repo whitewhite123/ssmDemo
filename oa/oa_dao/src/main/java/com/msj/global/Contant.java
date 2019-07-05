@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 //常量
 public class Contant {
+
+    //登录用户
+    public static final String CURRENTUSER = "employee";
+
     //职务
     public static final String POST_STAFF="员工";
     public static final String POST_FM="部门经理";

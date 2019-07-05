@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -43,12 +44,32 @@ public class ClaimVoucherController {
     }
 
     //查看待处理的报销单
+//    @RequestMapping("/deal")
+//    public String deal(Map<String,Object> map,HttpSession session){
+//        Employee employee = (Employee)session.getAttribute("employee");
+//        String createSn = employee.getSn();
+//        List<ClaimVoucher> claimVoucherList = claimVoucherService.findForDeal(createSn);
+//        map.put("list",claimVoucherList);
+//        return "claim_voucher_deal";
+//    }
+
     @RequestMapping("/deal")
     public String deal(Map<String,Object> map,HttpSession session){
-        Employee employee = (Employee)session.getAttribute("employee");
+        Employee employee = (Employee)session.getAttribute(Contant.CURRENTUSER);
+        String post = employee.getPost();
         String createSn = employee.getSn();
-        List<ClaimVoucher> claimVoucherList = claimVoucherService.findForDeal(createSn);
-        map.put("list",claimVoucherList);
+        if("总经理".equals(post)){
+            List<ClaimVoucher> claimVoucherList = claimVoucherService.selectClaimVoucherByPrice(5000, 10000);
+            System.out.println("总经理"+claimVoucherList);
+            map.put("list",claimVoucherList);
+        }else if("财务经理".equals(post)){
+            List<ClaimVoucher> claimVoucherList = claimVoucherService.selectClaimVoucherByPrice(0,5000);
+            System.out.println("财务经理"+claimVoucherList);
+            map.put("list",claimVoucherList);
+        }else{
+            List<ClaimVoucher> claimVoucherList = claimVoucherService.findForDeal(createSn);
+            map.put("list",claimVoucherList);
+        }
         return "claim_voucher_deal";
     }
 

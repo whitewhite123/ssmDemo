@@ -18,4 +18,5 @@ public interface ClaimVoucherService {
     List<DealRecord> findRecords(Integer id);
 
     void edit(ClaimVoucher claimVoucher,List<ClaimVoucherItem> items);
+    List<ClaimVoucher> selectClaimVoucherByPrice(@Param("low")Integer low,@Param("high")Integer high);
 }

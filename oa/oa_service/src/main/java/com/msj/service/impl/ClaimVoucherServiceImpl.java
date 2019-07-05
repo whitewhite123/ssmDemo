@@ -66,8 +66,10 @@ public class ClaimVoucherServiceImpl implements ClaimVoucherService{
     public void edit(ClaimVoucher claimVoucher, List<ClaimVoucherItem> items) {
         claimVoucher.setNextDealSn(claimVoucher.getCreateSn());
         claimVoucher.setStatus(Contant.CLAIMVOUCHER_CREATED);
+        //更新报销单表
         claimVoucherDao.update(claimVoucher);
 
+        //查询报销详情表
         List<ClaimVoucherItem> olds = claimVoucherItemDao.selectItems(claimVoucher.getId());
         for(ClaimVoucherItem old:olds){
             boolean isHave = false;
@@ -91,6 +93,11 @@ public class ClaimVoucherServiceImpl implements ClaimVoucherService{
             }
         }
     }
+
+    public List<ClaimVoucher> selectClaimVoucherByPrice(Integer low, Integer high) {
+        return claimVoucherDao.selectClaimVoucherByPrice(low,high);
+    }
+
 
 
 }
