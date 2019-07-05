@@ -79,7 +79,7 @@ public class ClaimVoucherController {
         Employee employee = (Employee)session.getAttribute("employee");
         info.getClaimVoucher().setCreateSn(employee.getSn());
         claimVoucherService.edit(info.getClaimVoucher(),info.getItems());
-        return "redirect:/claimVoucher/deal";
+        return "redirect:/claim_voucher/deal";
     }
 
 }
