@@ -11,4 +11,5 @@ public interface UserService {
     User selectForCheck(@Param("str")String str,@Param("type")String type);
     User getQuestion(String username);
     User checkAnswer(@Param("username")String username,@Param("question")String question);
+    Integer updatePassword(@Param("username")String username,@Param("password")String password);
 }

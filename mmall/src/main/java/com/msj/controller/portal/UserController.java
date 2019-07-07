@@ -85,14 +85,33 @@ public class UserController {
     @ResponseBody
     public ServerResponse forgetCheckAnswer(@Param("username")String username,
                                             @Param("question")String question,
-                                            @Param("answer")String answer){
+                                            @Param("answer")String answer,HttpSession session){
         User user = userService.checkAnswer(username, question);
         if(user!=null){
             if((user.getAnswer()).equals(answer)){
-                return ServerResponse.checkAnswerSuccess();
+                ServerResponse serverResponse = ServerResponse.checkAnswerSuccess();
+                String msg = ServerResponse.checkAnswerSuccess().getMsg();
+                session.setAttribute("forgetToken",msg);
+                return serverResponse;
             }
         }
         return ServerResponse.checkAnswerFail();
+    }
+
+    //7、忘记密码重设密码
+    @RequestMapping("/forget_reset_password.do")
+    @ResponseBody
+    public ServerResponse resetPassword(String username,String passwordNew,String forgetToken,HttpSession session){
+        System.out.println(session.getAttribute("forgetToken"));
+        if((session.getAttribute("forgetToken")).equals(forgetToken)){
+            System.out.println("aaa");
+            Integer num = userService.updatePassword(username, passwordNew);
+            System.out.println(num);
+            if(num>0){
+                return ServerResponse.updatePasswordSuccess();
+            }
+        }
+        return ServerResponse.updatePasswordFail();
     }
 
 }

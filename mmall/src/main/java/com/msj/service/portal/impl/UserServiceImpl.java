@@ -35,5 +35,9 @@ public class UserServiceImpl implements UserService{
         return userMapper.checkAnswer(username,question);
     }
 
+    public Integer updatePassword(String username, String password) {
+       return userMapper.updatePassword(username,password);
+    }
+
 
 }

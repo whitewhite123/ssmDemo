@@ -120,5 +120,18 @@ public class ServerResponse {
                 ResponseCode.CHECK_ANSWER_ERROR.getDesc());
     }
 
+    /**
+     * 重设密码
+     * @return
+     */
+    public static ServerResponse updatePasswordSuccess(){
+        return new ServerResponse(ResponseCode.UPDATE_PASSWORD_SUCCESS.getCode(),
+                ResponseCode.UPDATE_PASSWORD_SUCCESS.getDesc());
+    }
+    public static ServerResponse updatePasswordFail(){
+        return new ServerResponse(ResponseCode.UPDATE_PASSWORD_ERROR.getCode(),
+                ResponseCode.UPDATE_PASSWORD_ERROR.getDesc());
+    }
+
 
 }
