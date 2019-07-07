@@ -86,4 +86,6 @@
   <select id="selectForCheck" resultMap="BaseResultMap">
     select * from mmall_user where username = #{str}
   </select>
+
+
 </mapper>

@@ -74,7 +74,18 @@ public class ServerResponse {
      * @return
      */
     public static ServerResponse registerByFail(){
-        return new ServerResponse(ResponseCode.REGISTER_ERROE.getCode(),
-                ResponseCode.REGISTER_ERROE.getDesc());
+        return new ServerResponse(ResponseCode.REGISTER_ERROR.getCode(),
+                ResponseCode.REGISTER_ERROR.getDesc());
     }
+
+    public static ServerResponse loginBySuccess(Object data){
+        return new ServerResponse(ResponseCode.LOGIN_SUCCESS.getCode(),data);
+    }
+
+
+    public static ServerResponse loginByFail(){
+        return new ServerResponse(ResponseCode.LOGIN_ERROR.getCode(),
+                ResponseCode.LOGIN_ERROR.getDesc());
+    }
+
 }
