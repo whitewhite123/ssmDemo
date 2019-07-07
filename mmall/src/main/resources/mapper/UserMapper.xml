@@ -82,4 +82,8 @@
     select * from mmall_user where username=#{username} and password=#{password} and email=#{email} and
     phone=#{phone} and question=#{question} and answer=#{answer}
   </select>
+
+  <select id="selectForCheck" resultMap="BaseResultMap">
+    select * from mmall_user where username = #{str}
+  </select>
 </mapper>

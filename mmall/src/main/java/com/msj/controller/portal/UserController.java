@@ -37,11 +37,21 @@ public class UserController {
                                    @Param("email")String email,@Param("phone")String phone,
                                    @Param("question")String question,@Param("answer")String answer){
         User user = userService.selectForRegister(username, password, email, phone, question, answer);
-        System.out.println(user);
         if(user!=null){
             return ServerResponse.registerByFail();
         }
         return  ServerResponse.registerBySuccess();
+    }
 
+    //检查用户名是否有效
+    @RequestMapping("/check_valid.do")
+    @ResponseBody
+    public ServerResponse checkValid(@Param("str") String str,@Param("type") String type){
+        User user = userService.selectForCheck(str,type);
+        if(user!=null){
+            return ServerResponse.registerByFail();
+        }
+
+        return ServerResponse.registerBySuccess();
     }
 }

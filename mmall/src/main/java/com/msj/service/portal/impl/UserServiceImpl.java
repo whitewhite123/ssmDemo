@@ -18,4 +18,12 @@ public class UserServiceImpl implements UserService{
     public User selectForRegister(String username, String password, String email, String phone, String question, String answer) {
         return userMapper.selectForRegister(username,password,email,phone,question,answer);
     }
+
+
+    public User selectForCheck(String str, String type) {
+        if("username".equals(type)){
+            return userMapper.selectForCheck(str);
+        }
+        return null;
+    }
 }
