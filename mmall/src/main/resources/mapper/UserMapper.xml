@@ -87,5 +87,7 @@
     select * from mmall_user where username = #{str}
   </select>
 
-
+  <select id="getQuestion" resultMap="BaseResultMap">
+    select question from mmall_user where username=#{username};
+  </select>
 </mapper>

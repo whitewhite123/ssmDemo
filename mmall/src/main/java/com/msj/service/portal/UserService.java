@@ -9,5 +9,5 @@ public interface UserService {
                            @Param("email")String email,@Param("phone")String phone,
                            @Param("question")String question,@Param("answer")String answer);
     User selectForCheck(@Param("str")String str,@Param("type")String type);
-
+    User getQuestion(String username);
 }

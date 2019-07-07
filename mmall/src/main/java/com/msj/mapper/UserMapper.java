@@ -18,5 +18,5 @@ public interface UserMapper {
                            @Param("email")String email,@Param("phone")String phone,
                            @Param("question")String question,@Param("answer")String answer);
     User selectForCheck(String str);
-
+    User getQuestion(String username);
 }

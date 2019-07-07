@@ -68,4 +68,15 @@ public class UserController {
         }
         return ServerResponse.loginByFail();
     }
+
+    //5、忘记密码
+    @RequestMapping("/forget_get_question.do")
+    @ResponseBody
+    public ServerResponse forgetGetQuestion(String username){
+        User question = userService.getQuestion(username);
+        if(question!=null){
+            return ServerResponse.getQuestionSuccess();
+        }
+        return ServerResponse.getQuestionFail();
+    }
 }

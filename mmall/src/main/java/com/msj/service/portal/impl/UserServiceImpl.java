@@ -27,5 +27,9 @@ public class UserServiceImpl implements UserService{
         return null;
     }
 
+    public User getQuestion(String username) {
+        return userMapper.getQuestion(username);
+    }
+
 
 }

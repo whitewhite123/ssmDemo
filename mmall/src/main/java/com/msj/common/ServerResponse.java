@@ -1,6 +1,7 @@
 package com.msj.common;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import org.omg.CORBA.PUBLIC_MEMBER;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)//保证序列化Json的时候，如果值为null，会不显示这个key
 public class ServerResponse {
@@ -59,6 +60,15 @@ public class ServerResponse {
         return new ServerResponse(ResponseCode.ERROR.getCode(),ResponseCode.ERROR.getDesc());
     }
 
+    public static ServerResponse loginBySuccess(Object data){
+        return new ServerResponse(ResponseCode.LOGIN_SUCCESS.getCode(),data);
+    }
+
+
+    public static ServerResponse loginByFail(){
+        return new ServerResponse(ResponseCode.LOGIN_ERROR.getCode(),
+                ResponseCode.LOGIN_ERROR.getDesc());
+    }
     /**
      * 注册成功
      * @param
@@ -78,14 +88,22 @@ public class ServerResponse {
                 ResponseCode.REGISTER_ERROR.getDesc());
     }
 
-    public static ServerResponse loginBySuccess(Object data){
-        return new ServerResponse(ResponseCode.LOGIN_SUCCESS.getCode(),data);
+    /**
+     * 找回密码的问题成功
+     * @return
+     */
+    public static ServerResponse getQuestionSuccess(){
+        return new ServerResponse(ResponseCode.GET_QUESTION_SUCCESS.getCode(),
+                ResponseCode.GET_QUESTION_SUCCESS.getDesc());
+    }
+    /**
+     * 找回密码的问题失败
+     * @return
+     */
+    public static ServerResponse getQuestionFail(){
+        return new ServerResponse(ResponseCode.GET_QUESTION_ERROR.getCode(),
+                ResponseCode.GET_QUESTION_ERROR.getDesc());
     }
 
-
-    public static ServerResponse loginByFail(){
-        return new ServerResponse(ResponseCode.LOGIN_ERROR.getCode(),
-                ResponseCode.LOGIN_ERROR.getDesc());
-    }
 
 }
