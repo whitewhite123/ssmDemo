@@ -21,11 +21,21 @@ public class ServerResponse {
         return data;
     }
 
+    /**
+     * 构造函数
+     * @param status 状态码
+     * @param data 对象
+     */
     private ServerResponse(int status, Object data) {
         this.status = status;
         this.data = data;
     }
 
+    /**
+     * 构造函数
+     * @param status 状态码
+     * @param msg
+     */
     private ServerResponse(int status, String msg) {
         this.status = status;
         this.msg = msg;
@@ -42,19 +52,29 @@ public class ServerResponse {
 
     /**
      * 登录失败
-     * @param msg 自定义msg
+     * @param
      * @return
      */
-    public static ServerResponse createByFailMessage(String msg){
-        return new ServerResponse(ResponseCode.ERROR.getCode(),msg);
+    public static ServerResponse createByFailMessage(){
+        return new ServerResponse(ResponseCode.ERROR.getCode(),ResponseCode.ERROR.getDesc());
     }
 
     /**
      * 注册成功
-     * @param msg 自定义msg
+     * @param
      * @return
      */
-    public static ServerResponse registerBySuccess(String msg){
-        return new ServerResponse(ResponseCode.SUCCESS.getCode(),msg);
+    public static ServerResponse registerBySuccess(){
+        return new ServerResponse(ResponseCode.REGISTER_SUCCESS.getCode(),
+                ResponseCode.REGISTER_SUCCESS.getDesc());
+    }
+    /**
+     * 注册成功
+     * @param
+     * @return
+     */
+    public static ServerResponse registerByFail(){
+        return new ServerResponse(ResponseCode.REGISTER_ERROE.getCode(),
+                ResponseCode.REGISTER_ERROE.getDesc());
     }
 }

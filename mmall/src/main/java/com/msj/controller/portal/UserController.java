@@ -27,7 +27,7 @@ public class UserController {
         if (user != null) {
             return ServerResponse.createBySuccess(user);
         }
-        return ServerResponse.createByFailMessage("密码错误");
+        return ServerResponse.createByFailMessage();
     }
 
     //注册
@@ -36,7 +36,12 @@ public class UserController {
     public ServerResponse register(@Param("username")String username,@Param("password")String password,
                                    @Param("email")String email,@Param("phone")String phone,
                                    @Param("question")String question,@Param("answer")String answer){
-        return ServerResponse.registerBySuccess("校验成功");
+        User user = userService.selectForRegister(username, password, email, phone, question, answer);
+        System.out.println(user);
+        if(user!=null){
+            return ServerResponse.registerByFail();
+        }
+        return  ServerResponse.registerBySuccess();
 
     }
 }

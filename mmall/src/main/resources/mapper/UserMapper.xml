@@ -77,4 +77,9 @@
     select id,username,password,email,phone,create_time,update_time from mmall_user
     where username = #{username}
   </select>
+
+  <select id="selectForRegister" resultMap="BaseResultMap">
+    select * from mmall_user where username=#{username} and password=#{password} and email=#{email} and
+    phone=#{phone} and question=#{question} and answer=#{answer}
+  </select>
 </mapper>
