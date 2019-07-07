@@ -132,6 +132,10 @@ public class ServerResponse {
         return new ServerResponse(ResponseCode.UPDATE_PASSWORD_ERROR.getCode(),
                 ResponseCode.UPDATE_PASSWORD_ERROR.getDesc());
     }
+    public static ServerResponse updatePasswordFail2(){
+        return new ServerResponse(ResponseCode.UPDATE_PASSWORD_ERROR2.getCode(),
+                ResponseCode.UPDATE_PASSWORD_ERROR2.getDesc());
+    }
 
 
 }
