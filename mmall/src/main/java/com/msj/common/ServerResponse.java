@@ -2,6 +2,7 @@ package com.msj.common;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import org.omg.CORBA.PUBLIC_MEMBER;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)//保证序列化Json的时候，如果值为null，会不显示这个key
 public class ServerResponse {
@@ -41,6 +42,7 @@ public class ServerResponse {
         this.status = status;
         this.msg = msg;
     }
+
 
     /**
      * 登录成功
@@ -103,6 +105,19 @@ public class ServerResponse {
     public static ServerResponse getQuestionFail(){
         return new ServerResponse(ResponseCode.GET_QUESTION_ERROR.getCode(),
                 ResponseCode.GET_QUESTION_ERROR.getDesc());
+    }
+
+    /**
+     * 提交问题答案
+     * @return
+     */
+    public static ServerResponse checkAnswerSuccess(){
+        return new ServerResponse(ResponseCode.CHECK_ANSWER_SUCCESS.getCode(),
+                ResponseCode.CHECK_ANSWER_SUCCESS.getDesc());
+    }
+    public static ServerResponse checkAnswerFail(){
+        return new ServerResponse(ResponseCode.CHECK_ANSWER_ERROR.getCode(),
+                ResponseCode.CHECK_ANSWER_ERROR.getDesc());
     }
 
 

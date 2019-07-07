@@ -79,4 +79,20 @@ public class UserController {
         }
         return ServerResponse.getQuestionFail();
     }
+
+    //6、提交问题答案
+    @RequestMapping("/forget_check_answer.do")
+    @ResponseBody
+    public ServerResponse forgetCheckAnswer(@Param("username")String username,
+                                            @Param("question")String question,
+                                            @Param("answer")String answer){
+        User user = userService.checkAnswer(username, question);
+        if(user!=null){
+            if((user.getAnswer()).equals(answer)){
+                return ServerResponse.checkAnswerSuccess();
+            }
+        }
+        return ServerResponse.checkAnswerFail();
+    }
+
 }

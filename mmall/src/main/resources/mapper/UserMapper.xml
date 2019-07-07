@@ -90,4 +90,8 @@
   <select id="getQuestion" resultMap="BaseResultMap">
     select question from mmall_user where username=#{username};
   </select>
+
+  <select id="checkAnswer" resultMap="BaseResultMap">
+    select answer from mmall_user where username=#{username} and question=#{question}
+  </select>
 </mapper>

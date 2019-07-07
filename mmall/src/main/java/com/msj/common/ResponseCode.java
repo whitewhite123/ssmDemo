@@ -8,8 +8,9 @@ public enum  ResponseCode {
     LOGIN_SUCCESS(0,"SUCCESS"),
     LOGIN_ERROR(1,"用户未登录,无法获取当前用户信息"),
     GET_QUESTION_SUCCESS(0,"这里是问题"),
-    GET_QUESTION_ERROR(1,"该用户未设置找回密码问题");
-
+    GET_QUESTION_ERROR(1,"该用户未设置找回密码问题"),
+    CHECK_ANSWER_SUCCESS(0,"531ef4b4-9663-4e6d-9a20-fb56367446a5"),
+    CHECK_ANSWER_ERROR(1,"问题答案错误");
 
 
     private final int code;

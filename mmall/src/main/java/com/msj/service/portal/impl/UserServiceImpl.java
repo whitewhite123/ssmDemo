@@ -31,5 +31,9 @@ public class UserServiceImpl implements UserService{
         return userMapper.getQuestion(username);
     }
 
+    public User checkAnswer(String username, String question) {
+        return userMapper.checkAnswer(username,question);
+    }
+
 
 }
