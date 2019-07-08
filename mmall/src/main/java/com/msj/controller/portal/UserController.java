@@ -157,5 +157,15 @@ public class UserController {
     //10、获取当前登录用户的详细信息，并强制登录
 
     //11、退出登录
+    @RequestMapping("/logout.do")
+    @ResponseBody
+    public ServerResponse logout(HttpSession session){
+        if(session.getAttribute("user")!=null){
+            session.setAttribute("user",null);
+            return ServerResponse.logoutSuccess();
+        }
+        return ServerResponse.logoutFail();
+
+    }
 
 }

@@ -21,7 +21,10 @@ public enum  ResponseCode {
     UPDATE_PASSWORD_ERROR2(1,"旧密码输入错误"),
 
     UPDATE_INFORMATION_SUCCESS(0,"更新个人信息成功"),
-    UPDATE_INFORMATION_ERROR(1,"用户未登录")
+    UPDATE_INFORMATION_ERROR(1,"用户未登录"),
+
+    LOGOUT_SUCCESS(0,"退出成功"),
+    LOGOUT_ERROR(1,"服务端异常")
 
 
 

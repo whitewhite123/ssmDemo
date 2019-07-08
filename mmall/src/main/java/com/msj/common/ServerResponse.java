@@ -150,5 +150,16 @@ public class ServerResponse {
                 ResponseCode.UPDATE_INFORMATION_ERROR.getDesc());
     }
 
-
+    /**
+     * 退出登录
+     * @return
+     */
+    public static ServerResponse logoutSuccess(){
+        return new ServerResponse(ResponseCode.LOGOUT_SUCCESS.getCode(),
+                ResponseCode.LOGOUT_SUCCESS.getDesc());
+    }
+    public static ServerResponse logoutFail(){
+        return new ServerResponse(ResponseCode.LOGOUT_ERROR.getCode(),
+                ResponseCode.LOGOUT_ERROR.getDesc());
+    }
 }
