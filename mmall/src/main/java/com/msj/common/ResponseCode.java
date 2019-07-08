@@ -1,6 +1,7 @@
 package com.msj.common;
 
 public enum  ResponseCode {
+    //用户接口
     SUCCESS(200,"SUCCESS"),
     ERROR(1,"密码错误"),
 
@@ -24,11 +25,9 @@ public enum  ResponseCode {
     UPDATE_INFORMATION_ERROR(1,"用户未登录"),
 
     LOGOUT_SUCCESS(0,"退出成功"),
-    LOGOUT_ERROR(1,"服务端异常")
+    LOGOUT_ERROR(1,"服务端异常");
 
 
-
-    ;
 
 
 
