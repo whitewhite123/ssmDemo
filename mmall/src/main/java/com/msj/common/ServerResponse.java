@@ -137,5 +137,18 @@ public class ServerResponse {
                 ResponseCode.UPDATE_PASSWORD_ERROR2.getDesc());
     }
 
+    /**
+     * 更新个人信息
+     * @return
+     */
+    public static ServerResponse updateInformationSuccess(){
+        return new ServerResponse(ResponseCode.UPDATE_INFORMATION_SUCCESS.getCode(),
+                ResponseCode.UPDATE_INFORMATION_SUCCESS.getDesc());
+    }
+    public static ServerResponse updateInformationFail(){
+        return new ServerResponse(ResponseCode.UPDATE_INFORMATION_ERROR.getCode(),
+                ResponseCode.UPDATE_INFORMATION_ERROR.getDesc());
+    }
+
 
 }

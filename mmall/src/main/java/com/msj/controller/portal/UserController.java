@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 
 @Controller
 @RequestMapping("/user")
@@ -127,5 +128,34 @@ public class UserController {
         }
         return ServerResponse.updatePasswordFail2();
     }
+
+    //9、登录状态更新个人信息
+    @RequestMapping("/update_information.do")
+    @ResponseBody
+    public ServerResponse updateInformation(@Param("email") String email,@Param("phone") String phone,
+                                            @Param("question")String question,@Param("answer")String answer,
+                                            HttpSession session){
+        //如果session取出来不为空，就进行判断，为空说明未登录
+        User user = (User)session.getAttribute("user");
+        if(user!=null){
+            Integer id = user.getId();
+            User user1 = new User();
+            user1.setId(id);
+            user1.setEmail(email);
+            user1.setPhone(phone);
+            user1.setQuestion(question);
+            user1.setAnswer(answer);
+            user1.setUpdateTime(new Date());
+            Integer num = userService.updateInformation(user1);
+            if(num>0){
+                return ServerResponse.updateInformationSuccess();
+            }
+        }
+        return ServerResponse.updateInformationFail();
+    }
+
+    //10、获取当前登录用户的详细信息，并强制登录
+
+    //11、退出登录
 
 }

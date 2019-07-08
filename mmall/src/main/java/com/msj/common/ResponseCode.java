@@ -18,7 +18,10 @@ public enum  ResponseCode {
 
     UPDATE_PASSWORD_SUCCESS(0,"修改密码成功"),
     UPDATE_PASSWORD_ERROR(1,"修改密码操作失效"),
-    UPDATE_PASSWORD_ERROR2(1,"旧密码输入错误")
+    UPDATE_PASSWORD_ERROR2(1,"旧密码输入错误"),
+
+    UPDATE_INFORMATION_SUCCESS(0,"更新个人信息成功"),
+    UPDATE_INFORMATION_ERROR(1,"用户未登录")
 
 
 

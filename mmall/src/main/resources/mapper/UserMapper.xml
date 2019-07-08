@@ -99,4 +99,26 @@
     update mmall_user set password=#{password}
     where username=#{username}
   </update>
+
+  <update id="updateInformation">
+    update mmall_user
+    <set>
+      <if test="email!=null">
+        email=#{email},
+      </if>
+      <if test="phone!=null">
+        phone=#{phone},
+      </if>
+      <if test="question!=null">
+        question=#{quesion},
+      </if>
+      <if test="answer!=null">
+        answer=#{answer}
+      </if>
+      <if test="updateTime!=null">
+        update_time=#{updateTime}
+      </if>
+    </set>
+    where id=#{id}
+  </update>
 </mapper>
